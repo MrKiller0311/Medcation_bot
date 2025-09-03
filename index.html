@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SymptoCheck - Smart AI Health Assistant</title>
+  <title>SymptoCheck - AI Health Assistant</title>
   <style>
+    :root {
+      --primary-color: #00467a;   /* Deep Blue */
+      --secondary-color: #28a745; /* Health Green */
+      --accent-color: #ffcc00;    /* Highlight */
+      --background-color: #f5f9fc;
+      --text-color: #333;
+    }
+
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background: var(--background-color);
+      color: var(--text-color);
       line-height: 1.6;
-      background-color: #f5f9fc;
-      color: #333;
     }
+
     header {
-      background: #00467a;
+      background: var(--primary-color);
       color: white;
-      padding: 20px 0;
+      padding: 40px 20px;
       text-align: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
+    header h1 { font-size: 2.8rem; margin: 0; }
+    header p { font-size: 1.2rem; margin-top: 5px; }
+
     nav {
       display: flex;
       justify-content: center;
@@ -33,31 +40,43 @@
       color: white;
       text-decoration: none;
       padding: 14px 20px;
-      display: inline-block;
+      font-weight: 500;
     }
     nav a:hover {
-      background: #02548c;
+      background: var(--accent-color);
+      color: #000;
     }
+
     section {
-      padding: 40px;
-      max-width: 1000px;
+      padding: 50px 20px;
+      max-width: 1100px;
       margin: auto;
     }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--primary-color);
+    }
+
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
     .card {
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       padding: 20px;
-      text-align: center;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
     }
     .card h3 {
-      color: #00467a;
+      color: var(--secondary-color);
     }
+
     .team {
       display: flex;
       flex-wrap: wrap;
@@ -67,17 +86,43 @@
     .member {
       background: white;
       border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
       padding: 15px;
       width: 200px;
       text-align: center;
+      transition: transform 0.2s;
     }
+    .member:hover {
+      transform: scale(1.05);
+    }
+    .member h4 {
+      margin-bottom: 8px;
+      color: var(--primary-color);
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .cta button {
+      background: var(--secondary-color);
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .cta button:hover {
+      background: #218838;
+    }
+
     footer {
-      background: #00467a;
+      background: var(--primary-color);
       color: white;
       text-align: center;
       padding: 15px;
-      margin-top: 30px;
+      margin-top: 40px;
     }
   </style>
 </head>
@@ -85,22 +130,24 @@
 
   <header>
     <h1>SymptoCheck</h1>
-    <p>Smart AI-Powered Health Assistant</p>
+    <p>AI-Powered Digital Health Companion</p>
   </header>
 
   <nav>
-    <a href="#intro">Home</a>
+    <a href="#about">About</a>
     <a href="#features">Features</a>
+    <a href="#problem">Problem</a>
     <a href="#team">Team</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="intro">
-    <h2>Welcome to SymptoCheck</h2>
+  <section id="about">
+    <h2>About SymptoCheck</h2>
     <p>
-      SymptoCheck is a smart healthcare website that helps users analyze symptoms, 
-      connect with certified doctors, locate nearby clinics, and access health resources.
-      Designed to bridge the gap between self-diagnosis and professional medical consultation.
+      In today’s fast-paced world, individuals often ignore health symptoms due to lack of time,
+      awareness, or access to medical facilities. <strong>SymptoCheck</strong> is designed to
+      bridge the gap between self-diagnosis and professional healthcare by providing AI-powered
+      symptom analysis, doctor consultation, clinic locators, and emergency alerts.
     </p>
   </section>
 
@@ -109,49 +156,61 @@
     <div class="features">
       <div class="card">
         <h3>AI Symptom Checker</h3>
-        <p>Get instant analysis of your symptoms with AI-powered predictions.</p>
+        <p>Input your symptoms and get instant AI-based predictions.</p>
       </div>
       <div class="card">
-        <h3>Telemedicine Support</h3>
-        <p>Consult certified doctors online from anywhere, anytime.</p>
+        <h3>Doctor Consultation</h3>
+        <p>Connect with certified physicians for professional advice.</p>
       </div>
       <div class="card">
         <h3>Clinic Locator</h3>
-        <p>Find nearby hospitals and clinics using Google Maps integration.</p>
+        <p>Find nearby hospitals and clinics via Google Maps API.</p>
       </div>
       <div class="card">
         <h3>Emergency Alerts</h3>
-        <p>Trigger real-time alerts to hospitals in case of critical conditions.</p>
+        <p>Automatic alerts to hospitals in case of critical detection.</p>
+      </div>
+      <div class="card">
+        <h3>Health Blogs</h3>
+        <p>Access wellness tips, awareness articles, and home remedies.</p>
+      </div>
+      <div class="card">
+        <h3>IoT Integration</h3>
+        <p>Monitor vitals using wearable devices and send real-time data.</p>
       </div>
     </div>
+  </section>
+
+  <section id="problem">
+    <h2>Problem We Solve</h2>
+    <p>
+      Millions rely on Google or self-diagnosis when symptoms occur, which often leads to
+      misinformation or delayed medical care. Rural populations lack access to certified
+      healthcare. <strong>SymptoCheck</strong> provides accessible, reliable, and affordable
+      health support.
+    </p>
   </section>
 
   <section id="team">
     <h2>Our Team</h2>
     <div class="team">
-      <div class="member">
-        <h4>Kataria Kushal</h4>
-      </div>
-      <div class="member">
-        <h4>Saddab Alam</h4>
-      </div>
-      <div class="member">
-        <h4>Priya Kumari</h4>
-      </div>
-      <div class="member">
-        <h4>Amritkaur Rajpal</h4>
-      </div>
-      <div class="member">
-        <h4>Mentor: Prof. Palwinder Singh</h4>
-      </div>
+      <div class="member"><h4>Kataria Kushal</h4><p>Project Lead</p></div>
+      <div class="member"><h4>Saddab Alam</h4><p>AI Developer</p></div>
+      <div class="member"><h4>Priya Kumari</h4><p>Backend Engineer</p></div>
+      <div class="member"><h4>Amritkaur Rajpal</h4><p>Frontend Designer</p></div>
+      <div class="member"><h4>Mentor: Prof. Palwinder Singh</h4><p>Guide</p></div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
     <p>Email: <a href="mailto:symptocheck@health.ai">symptocheck@health.ai</a></p>
-    <p>Follow us on <a href="#">LinkedIn</a> | <a href="#">Twitter</a></p>
+    <p>Follow us: <a href="#">LinkedIn</a> | <a href="#">Twitter</a></p>
+    <div class="cta">
+      <button onclick="alert('Thank you for showing interest!')">Get Started</button>
+    </div>
   </section>
+
   <footer>
     <p>&copy; 2025 SymptoCheck Team 6585 | All Rights Reserved</p>
   </footer>
